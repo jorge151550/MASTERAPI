@@ -1,4 +1,5 @@
 // Importar el esquema mongoose
+
 const { Schema, model } = require('mongoose');
 
 
@@ -6,7 +7,9 @@ const { Schema, model } = require('mongoose');
 const RolSchema = Schema({
   nombrerol: {
     type: String,
-    required: [true, 'El nombre es obligatoria']
+    required: [true, 'El nombre es obligatoria'],
+    maxlength      : [ 50, 'El nombre no puede exceder los 50 caracteres' ],
+    minlength      : [ 3, 'El rol debe contener 3 o más caracteres' ]
   },
   funciones: {
     type: Array,
