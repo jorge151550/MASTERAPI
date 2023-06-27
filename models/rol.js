@@ -8,15 +8,14 @@ const RolSchema = Schema({
     type: String,
     required: [true, 'El nombre es obligatoria']
   },
-  permisos: {
-    type: String,
-    required: [true, 'Seleccione los permisos asociados al rol ']
-  },
   funciones: {
-    type: String,
+    type: Array,
     required: [true, 'Seleccione las funciones asociados al rol']
   },
-
+  permisos: {
+    type: Array,
+    required: [true, 'Seleccione los Permisos asociados al rol']
+  },
 fechacreacion: {
   type: Date,
   default: Date.now,
