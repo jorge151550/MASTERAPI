@@ -47,11 +47,11 @@ const putRol = async(req, res = response) =>{
     try {
         if(body.tipoModificacion == 'Unitaria'){
 //            await Rol.findOneAndUpdate({nombrerol:body.nombrerol}, {rol:body.rol, estado:body.estado})
-            await Rol.findOneAndUpdate({_id:body._id}, {nombrerol:body.nombrerol, permisos:body.permisos, funciones:body.funciones,estado:body.estado})
+            await Rol.findOneAndUpdate({_id:body._id}, {nombrerol:body.nombrerol,funciones:body.funciones,permisos:body.permisos,estado:body.estado})
             mensaje = 'Rol modificado exitosamente. Modificación: Sencilla'
         }
         else{
-            await Rol.updateMany({nombrerol:body.nombrerol}, {permisos:body.rol, funciones:body.funciones})
+            await Rol.updateMany({nombrerol:body.nombrerol}, { funciones:body.funciones})
             mensaje = 'Rol modificado exitosamente. Modificación: Múltiple'
         }
 
@@ -90,7 +90,3 @@ module.exports = {
     putRol,
     deleteRol
 }
-
-
-
-
